@@ -1,12 +1,13 @@
 import React from "react";
-import Layout from "../layout";
+import { operationList } from "../../helpers/operationList";
+import MenuOptions from "../../components/MenuOptions";
 
 type Props = {};
 
 const Home = (props: Props) => {
   return (
     <div>
-      <Layout />
+      <MenuOptions opTitles={operationList.PT.levantamentos.opTitles} opValues={operationList.PT.levantamentos.opValues} />
     </div>
   );
 };

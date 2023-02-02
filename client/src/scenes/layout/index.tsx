@@ -1,15 +1,26 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import Screen from "../../components/Screen";
 import Keyboard from "../../components/Keyboard";
-import ScreenKeys from "../../components/ScreenKeys";
+import { RightSide, LeftSide } from "../../components/ScreenKeys";
 
-type Props = {};
+type Props = {
+  children: ReactElement;
+};
 
-const Layout = (props: Props) => {
+const ScreenLayout = ({ children }: Props) => {
   return (
-    <div className="layout">
-      <Screen />
-      <ScreenKeys />
+    <div className="mt-3 mb-3 flex justify-center">
+      <LeftSide />
+      <Screen children={children} />
+      <RightSide />
+    </div>
+  );
+};
+
+const Layout = ({ children }: Props) => {
+  return (
+    <div className="grid">
+      <ScreenLayout children={children} />
       <Keyboard />
     </div>
   );

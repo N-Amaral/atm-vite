@@ -1,37 +1,36 @@
 import React from "react";
 
-type Props = {};
-
-const RightSide = () => {
+const btnStyles: string = "h-[100px] w-[150px] rounded-lg border bg-slate-500";
+export const LeftSide = () => {
   const content: string[] = ["1", "3", "5", "7"];
 
   return (
-    <div className="sideKeyWrapperRight">
+    <div className="grid gap-4">
       {content.map((num, i) => (
-        <div className="screenKeyRight" id={`${parseInt(num)}`} key={`${num}-${i}`}>
-          <span className="screenKeySymbolRight">{">"}</span>
-        </div>
+        <button className={btnStyles} id={`${parseInt(num)}`} key={`${num}-${i}`}>
+          <span className="">{">"}</span>
+        </button>
       ))}
     </div>
   );
 };
 
-const LeftSide = () => {
+export const RightSide = () => {
   const content: string[] = ["2", "4", "6", "8"];
   return (
-    <div className="sideKeyWrapperLeft">
+    <div className="grid gap-4">
       {content.map((num, i) => (
-        <div className="screenKeyLeft" id={`${parseInt(num)}`} key={`${num}-${i}`}>
-          <span className="screenKeySymbolLeft">{"<"}</span>
-        </div>
+        <button className={btnStyles} id={`${parseInt(num)}`} key={`${num}-${i}`}>
+          <span className="">{"<"}</span>
+        </button>
       ))}
     </div>
   );
 };
 
-const ScreenKeys = (props: Props) => {
+const ScreenKeys = () => {
   return (
-    <div className="sideWrapper">
+    <div className="">
       <RightSide />
       <LeftSide />
     </div>
