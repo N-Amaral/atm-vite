@@ -1,10 +1,10 @@
 import React, { ReactComponentElement, ReactElement } from "react";
 
 type Props = {
-  children: ReactElement;
+  children: React.ReactNode;
 };
 const Screen = ({ children }: Props) => {
-  return <div className="h-100 w-[90%] bg-black">hi</div>;
+  return <div className="h-[60vh] w-[80%] bg-black ">{children}</div>;
 };
 
 export default Screen;

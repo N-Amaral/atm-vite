@@ -1,9 +1,11 @@
+const btnStyles: string = "h-[100px] bg-slate-500 hover:bg-slate-400  border-[3px] border-b-gray-300 rounded-lg";
 const NumberKeys = () => {
-  const numPad: Array<String> = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "00", ""];
+  const numPad: Array<string> = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "00", ""];
+
   return (
     <>
       {numPad.map((key, i) => (
-        <button type="button" className="h-[100px] w-[100px] bg-slate-500" key={`${key}-${i}`}>
+        <button type="button" className={`${btnStyles} w-[100px]`} key={`${key}-${i}`}>
           {key}
         </button>
       ))}
@@ -16,7 +18,7 @@ const SideKeys = () => {
   return (
     <>
       {sidePad.map((key, i) => (
-        <button type="button" className="h-[100px] w-[200px] bg-slate-500 " key={`${key}-${i}`}>
+        <button type="button" className={`${btnStyles} w-[200px]`} key={`${key}-${i}`}>
           <span>
             {key} <span>{i === 0 ? "X" : i === 1 ? "<" : i === 2 ? "" : "0"}</span>
           </span>
