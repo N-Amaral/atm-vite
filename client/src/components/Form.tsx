@@ -12,7 +12,7 @@ const Form = ({ inputs, formType }: Props) => {
     content.push(
       <li className="" key={`input-${i}`}>
         <input
-          className="h-[50px] w-[50px] rounded-lg border-[2px] border-solid border-b-gray-400 bg-slate-600 text-center font-inter text-2xl font-bold text-white"
+          className="h-[3rem] w-[3rem] rounded-lg border-[2px] border-solid border-b-gray-400 bg-slate-600 text-center font-inter text-2xl font-bold text-white"
           type={"tel"}
           maxLength={1}
           required

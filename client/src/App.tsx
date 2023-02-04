@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Home from "./scenes/home";
 import Login from "./scenes/login";
 import Register from "./scenes/register";
+import Transfer from "./scenes/transfers";
+import Payments from "./scenes/payments";
+import Deposits from "./scenes/deposits";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
@@ -13,6 +16,9 @@ function App() {
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="transfer" element={<Transfer />} />
+        <Route path="payments" element={<Payments />} />
+        <Route path="deposits" element={<Deposits />} />
       </Routes>
     </BrowserRouter>
   );
