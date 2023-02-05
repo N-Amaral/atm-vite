@@ -5,7 +5,7 @@ export const LeftSide = () => {
   const content: string[] = ["1", "3", "5", "7"];
 
   return (
-    <div className="grid gap-4">
+    <div className="my-4 grid gap-4">
       {content.map((num, i) => (
         <button className={`${btnStyles} mr-1`} id={`${parseInt(num)}`} key={`${num}-${i}`}>
           <span className="flex justify-end">
@@ -20,7 +20,7 @@ export const LeftSide = () => {
 export const RightSide = () => {
   const content: string[] = ["2", "4", "6", "8"];
   return (
-    <div className="grid gap-4">
+    <div className="my-4 grid gap-4">
       {content.map((num, i) => (
         <button className={`${btnStyles} ml-1`} id={`${parseInt(num)}`} key={`${num}-${i}`}>
           <span className="flex justify-start">
