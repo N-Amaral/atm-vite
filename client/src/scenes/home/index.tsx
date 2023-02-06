@@ -8,7 +8,7 @@ type Props = {};
 const Home = (props: Props) => {
   return (
     <>
-      <Layout children={<MenuOptions opTitles={operationList.PT.levantamentos.opTitles} opValues={operationList.PT.levantamentos.opValues} />} />
+      <Layout children={<MenuOptions opTitles={Object.keys(operationList.PT)} />} />
     </>
   );
 };

@@ -4,16 +4,16 @@ import Layout from "../layout";
 
 type Props = {};
 
-const DepositsContent = (props: Props) => {
-  return <OperationLayout hOne="depositos" hThree={["Conta a depositar", "Montante a Depositar"]} formTypes={["upper", "lower"]} formNumber={[21, 5]} />;
+const WithdrawlsContent = (props: Props) => {
+  return <OperationLayout hOne="levantamentos" hThree={["Montante a Levantar"]} formTypes={["upper"]} formNumber={[5]} />;
 };
 
-function Deposits({}: Props) {
+function Withdrawls({}: Props) {
   return (
     <>
-      <Layout children={<DepositsContent />} />
+      <Layout children={<WithdrawlsContent />} />
     </>
   );
 }
 
-export default Deposits;
+export default Withdrawls;

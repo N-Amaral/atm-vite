@@ -5,7 +5,8 @@ import Register from "./scenes/register";
 import Transfer from "./scenes/transfers";
 import Payments from "./scenes/payments";
 import Deposits from "./scenes/deposits";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Withdrawls from "./scenes/withdrawls";
+import { BrowserRouter, Routes, Route, Navigate, redirect } from "react-router-dom";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="transfer" element={<Transfer />} />
         <Route path="payments" element={<Payments />} />
         <Route path="deposits" element={<Deposits />} />
+        <Route path="withdrawls" element={<Withdrawls />} />
       </Routes>
     </BrowserRouter>
   );
