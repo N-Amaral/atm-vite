@@ -1,3 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
 
-export const OpContext = createContext("home");
+export const OperationContext = createContext(null);
+export const OperationDispatchContext = createContext(null);

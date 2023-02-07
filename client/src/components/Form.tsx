@@ -20,7 +20,7 @@ const Form = ({ inputs, formType }: Props) => {
       </li>
     );
   }
-  return <ul className={`grid w-[200px] grid-flow-col grid-cols-${inputs} gap-y-0 gap-x-1`}>{content}</ul>;
+  return <ul className={`grid w-[200px] grid-flow-col grid-cols-${inputs} inputForm gap-y-0 gap-x-1`}>{content}</ul>;
 };
 
 export default Form;

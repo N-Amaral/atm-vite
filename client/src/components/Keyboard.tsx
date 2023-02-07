@@ -1,11 +1,15 @@
+import { useEffect } from "react";
+
+// General Stylings
 const btnStyles: string = "h-[100px] bg-slate-500 hover:bg-slate-400  border-[3px] border-b-gray-300 rounded-lg";
+
 const NumberKeys = () => {
   const numPad: Array<string> = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "00", ""];
 
   return (
     <>
       {numPad.map((key, i) => (
-        <button type="button" className={`${btnStyles} w-[100px]`} key={`${key}-${i}`}>
+        <button type="button" className={`${btnStyles} keyboardBtn w-[100px]`} key={`${key}-${i}`}>
           {key}
         </button>
       ))}

@@ -1,4 +1,5 @@
-import React from "react";
+import { OnScreenKeyboard } from "../../scripts/inputScripts";
+import React, { useEffect, useState } from "react";
 import OperationLayout from "../../components/OperationLayout";
 import { CreditCards } from "../../helpers/defaultCards";
 import Layout from "../layout";
@@ -44,6 +45,21 @@ function LoginContent({}: Props) {
 }
 
 function Login({}: Props) {
+  const [inputValue, setInputValue] = useState([]);
+
+  const [formValue, setFormValue] = useState();
+  useEffect(() => {
+    function handleOnScreenInput(event: any) {
+      OnScreenKeyboard(event, inputValue, setInputValue);
+    }
+
+    const keyboard = document.querySelectorAll(".keyboardBtn");
+    keyboard.forEach((key) => key.addEventListener("click", handleOnScreenInput));
+
+    return () => {
+      keyboard.forEach((key) => key.removeEventListener("click", handleOnScreenInput));
+    };
+  });
   return (
     <>
       <Layout children={<LoginContent />} />

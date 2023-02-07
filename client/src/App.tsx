@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import Home from "./scenes/home";
 import Login from "./scenes/login";
 import Register from "./scenes/register";
@@ -7,7 +7,7 @@ import Payments from "./scenes/payments";
 import Deposits from "./scenes/deposits";
 import Withdrawls from "./scenes/withdrawls";
 import { BrowserRouter, Routes, Route, Navigate, redirect } from "react-router-dom";
-
+import { OperationContext } from "./context/OperationContext";
 function App() {
   return (
     <BrowserRouter>
