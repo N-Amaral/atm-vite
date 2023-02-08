@@ -1,4 +1,4 @@
-import { OnScreenKeyboard } from "../../scripts/inputScripts";
+import { OnScreenKeyboard, formsNumber } from "../../scripts/inputScripts";
 import React, { useEffect, useState } from "react";
 import OperationLayout from "../../components/OperationLayout";
 import { CreditCards } from "../../helpers/defaultCards";
@@ -46,8 +46,14 @@ function LoginContent({}: Props) {
 
 function Login({}: Props) {
   const [inputValue, setInputValue] = useState([]);
+  const [formValue, setFormValue] = useState({});
 
-  const [formValue, setFormValue] = useState();
+  // initialize formValue based on number of inputs on page
+  useEffect(() => {
+    formsNumber(formValue, setFormValue);
+  }, []);
+
+  // register input on click
   useEffect(() => {
     function handleOnScreenInput(event: any) {
       OnScreenKeyboard(event, inputValue, setInputValue);
@@ -59,7 +65,7 @@ function Login({}: Props) {
     return () => {
       keyboard.forEach((key) => key.removeEventListener("click", handleOnScreenInput));
     };
-  });
+  }, [inputValue]);
   return (
     <>
       <Layout children={<LoginContent />} />
