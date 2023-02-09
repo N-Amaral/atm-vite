@@ -17,12 +17,14 @@ const OperationLayout = ({ hOne, hThree, formTypes, formNumber }: Props) => {
         <HeaderOneText>{hOne}</HeaderOneText>
       </div>
       <div className="">
-        {/* upper form */}
+        {/* form setup */}
         {hThree.map((name, i) => (
           <div key={i}>
+            {/* form header */}
             <div className="my-2 mx-2 ">
               <HeaderThreeText>{name}</HeaderThreeText>
             </div>
+            {/* form content */}
             <div className="my-2 mx-2">
               <Form inputs={formNumber[i]} formType={formTypes[i]} />
             </div>

@@ -5,7 +5,7 @@ import Layout from "../layout";
 type Props = {};
 
 const DepositsContent = (props: Props) => {
-  return <OperationLayout hOne="depositos" hThree={["Conta a depositar", "Montante a Depositar"]} formTypes={["upper", "lower"]} formNumber={[21, 5]} />;
+  return <OperationLayout hOne="depositos" hThree={["Conta a depositar", "Montante a Depositar"]} formTypes={["basic", "deposit"]} formNumber={[21, 5]} />;
 };
 
 function Deposits({}: Props) {

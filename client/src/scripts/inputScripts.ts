@@ -28,7 +28,10 @@ function checkFormStatus(form: Element[]) {}
 
 function setValueOnForm(value: string, formstate: object, setFormState: Function) {
   const form = document.querySelectorAll(".inputForm");
-  const currentForm = Array.from(form[0].children);
-  currentForm[0].textContent = value;
-  console.log(currentForm[0].textContent);
+  const currentForm: HTMLCollection[] = [];
+  form.forEach((list, i) => {
+    currentForm.push(list.children);
+  });
+
+  const input: ChildNode | null = currentForm[0][0].firstChild;
 }
