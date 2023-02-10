@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { OperationContext } from "../context/OperationContext";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 type Props = {
@@ -13,9 +14,10 @@ type InnerProps = {
 };
 
 const Option = ({ optionNum, title, value }: InnerProps) => {
+  const operation = useContext(OperationContext);
   function handleClick(e: any) {
     e.preventDefault();
-    console.log(e);
+    console.log(operation);
   }
 
   return (

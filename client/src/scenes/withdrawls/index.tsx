@@ -5,7 +5,7 @@ import Layout from "../layout";
 type Props = {};
 
 const WithdrawlsContent = (props: Props) => {
-  return <OperationLayout hOne="levantamentos" hThree={["Montante a Levantar"]} formTypes={["upper"]} formNumber={[5]} />;
+  return <OperationLayout hOne="levantamentos" hThree={["Montante a Levantar"]} formTypes={["deposit"]} formNumber={[5]} />;
 };
 
 function Withdrawls({}: Props) {

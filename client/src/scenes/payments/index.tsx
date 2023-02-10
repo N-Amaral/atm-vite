@@ -9,7 +9,7 @@ const PaymentsContent = (props: Props) => {
     <OperationLayout
       hOne="Pagamentos de Serviços"
       hThree={["Entidade", "Referência Bancária", "Montante"]}
-      formTypes={["upper", "middle", "lower"]}
+      formTypes={["basic", "bankref", "payment"]}
       formNumber={[4, 9, 7]}
     />
   );

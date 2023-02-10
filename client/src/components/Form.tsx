@@ -31,14 +31,14 @@ const PaymentForm = () => {
     if (i === 2) {
       content.push(
         <li key={`input-${i}`}>
-          <span>.</span>
+          <span className="m-1 text-[28px] font-extrabold text-white">.</span>
           <BasicInput />
         </li>
       );
     } else if (i === 5) {
       content.push(
         <li key={`input-${i}`}>
-          <span>,</span>
+          <span className="m-1 text-[28px] font-extrabold text-white">,</span>
           <BasicInput />
         </li>
       );
@@ -77,7 +77,7 @@ const DepositWithdrawForm = () => {
     if (i === 2) {
       content.push(
         <li key={`input-${i}`}>
-          <span>.</span>
+          <span className="m-1 text-[28px] font-extrabold text-white">.</span>
           <BasicInput />
         </li>
       );
