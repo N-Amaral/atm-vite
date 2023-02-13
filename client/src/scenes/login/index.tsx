@@ -1,7 +1,8 @@
 import { OnScreenKeyboard, formsNumber } from "../../scripts/inputScripts";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import OperationLayout from "../../components/OperationLayout";
 import { CreditCards } from "../../helpers/defaultCards";
+import { OperationContext } from "../../context/OperationContext";
 import Layout from "../layout";
 
 type Props = {};

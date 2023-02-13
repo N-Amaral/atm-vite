@@ -1,21 +1,25 @@
-import { createContext, useEffect, useState, useContext } from "react";
+import React, { createContext, useEffect, useState, useContext, useReducer } from "react";
 
 type Props = {
   children: React.ReactNode;
 };
 
-export const OperationContext = createContext("login");
+export const OperationContext = React.createContext<{ operation: string; dispatch: Function } | null>(null);
 
 export const OperationContextProvider = ({ children }: Props) => {
-  const [operation, setOperation] = useState("home");
-  useEffect(() => {
-    const currentOperation = (newOperation: string) => {
-      setOperation((prev) => newOperation);
-    };
-    return () => {
-      currentOperation();
-    };
-  }, []);
+  const INITIAL_STATE = { operation: "home" };
 
-  return <OperationContext.Provider value={operation}>{children}</OperationContext.Provider>;
+  const operationReducer = (state: any, action: any) => {
+    switch (action.type) {
+      case "OPERATION_CHANGE":
+        return {
+          operation: action.operation,
+        };
+      default:
+        return state;
+    }
+  };
+  const [state, dispatch] = useReducer(operationReducer, INITIAL_STATE);
+
+  return <OperationContext.Provider value={{ operation: state, dispatch }}>{children}</OperationContext.Provider>;
 };
