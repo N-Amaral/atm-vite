@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import { OperationContext } from "../../context/OperationContext";
 import OperationLayout from "../../components/OperationLayout";
 import Layout from "../layout";
 
@@ -9,6 +10,16 @@ const WithdrawlsContent = (props: Props) => {
 };
 
 function Withdrawls({}: Props) {
+  // @ts-ignore
+  const { dispatch } = useContext(OperationContext);
+
+  useEffect(() => {
+    dispatch({
+      type: "OPERATION_CHANGE",
+      operation: "withdrawls",
+    });
+  }, []);
+
   return (
     <>
       <Layout children={<WithdrawlsContent />} />

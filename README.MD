@@ -1,3 +1,7 @@
-###### LAYOUT PHASE - Screen, Keyboard and Side keys - CURRENT PHASE
+###### INPUT DETECTION PHASE - CURRENT PHASE
+
+###### SCENES AND ROUTING PHASE - DONE
+
+###### LAYOUT PHASE - DONE
 
 ###### SETUP PHASE - DONE

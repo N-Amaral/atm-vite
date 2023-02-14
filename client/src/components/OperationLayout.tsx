@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { InputContext } from "../context/InputContext";
+import { OnScreenKeyboard, formsNumber } from "../scripts/inputScripts";
 import Form from "./Form";
 import { HeaderOneText, HeaderThreeText } from "./HeaderText";
 
@@ -10,6 +12,21 @@ type Props = {
 };
 
 const OperationLayout = ({ hOne, hThree, formTypes, formNumber }: Props) => {
+  const [formState, setFormState] = useState([["set1"], ["set2"]]);
+
+  useEffect(() => {
+    const keyboard = document.querySelectorAll(".keyboardBtn");
+
+    function handleClick(e: any) {
+      OnScreenKeyboard(e, formState, setFormState);
+    }
+
+    keyboard.forEach((key) => key.addEventListener("click", handleClick));
+    return () => {
+      keyboard.forEach((key) => key.removeEventListener("click", handleClick));
+    };
+  }, []);
+
   return (
     <>
       {/* title */}
@@ -26,7 +43,9 @@ const OperationLayout = ({ hOne, hThree, formTypes, formNumber }: Props) => {
             </div>
             {/* form content */}
             <div className="my-2 mx-2">
-              <Form inputs={formNumber[i]} formType={formTypes[i]} />
+              <InputContext.Provider value={formState}>
+                <Form inputs={formNumber[i]} formType={formTypes[i]} />
+              </InputContext.Provider>
             </div>
           </div>
         ))}

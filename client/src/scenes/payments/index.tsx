@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import { OperationContext } from "../../context/OperationContext";
 import OperationLayout from "../../components/OperationLayout";
 import Layout from "../layout";
 
@@ -16,6 +17,16 @@ const PaymentsContent = (props: Props) => {
 };
 
 function Payments({}: Props) {
+  // @ts-ignore
+  const { dispatch } = useContext(OperationContext);
+
+  useEffect(() => {
+    dispatch({
+      type: "OPERATION_CHANGE",
+      operation: "payments",
+    });
+  }, []);
+
   return (
     <>
       <Layout children={<PaymentsContent />} />

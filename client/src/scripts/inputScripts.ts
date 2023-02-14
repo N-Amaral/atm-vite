@@ -1,8 +1,6 @@
-import React, { SetStateAction } from "react";
-
-export function OnScreenKeyboard(event: any, state: string[], setInputValue: Function) {
+export function OnScreenKeyboard(event: any, state: Array<string[]>, setInputValue: Function) {
   const keyValue: string = event.target.innerText;
-  setInputValue((prev: string[]) => [...prev, keyValue]);
+  setInputValue((prev: Array<string[]>) => [...prev, [keyValue]]);
   setValueOnForm(keyValue, state, setInputValue);
 }
 

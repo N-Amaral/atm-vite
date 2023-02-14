@@ -1,6 +1,6 @@
 import { OperationContext } from "../context/OperationContext";
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 type Props = {
   opTitles: string[];
@@ -14,31 +14,20 @@ type InnerProps = {
 };
 
 const Option = ({ optionNum, title, value }: InnerProps) => {
-  const { dispatch } = useContext(OperationContext); //ignore err
-
-  const navigate = useNavigate();
-  function handleClick(e: any, title: string) {
-    e.preventDefault();
-    dispatch({
-      type: "OPERATION_CHANGE",
-      operation: title,
-    });
-    navigate(`/${title}`);
-  }
-
   return (
-    <li
-      id={title}
-      className="flex h-[6rem] w-[35rem] content-center rounded-lg border-[3px] border-black bg-black hover:cursor-pointer "
-      onClick={(e) => handleClick(e, title)}
-    >
-      <div className=" m-[1rem] h-[4rem]  w-[4rem] rounded-lg border-[3px] border-solid border-blue-500 bg-white ">
-        <span className="flex justify-center pt-2 text-[28px] font-bold">{optionNum + 1}</span>
-      </div>
-      <div className="justify-end self-center">
-        <a className="text-start text-[28px] font-[700] capitalize text-white">{title}</a>
-      </div>
-    </li>
+    <Link to={`/${title}`}>
+      <li
+        id={title}
+        className="flex h-[6rem] w-[35rem] content-center rounded-lg border-[3px] border-gray-300 bg-gray-500 hover:cursor-pointer hover:border-gray-500 hover:bg-gray-600 "
+      >
+        <div className=" m-[1rem] h-[4rem]  w-[4rem] rounded-lg border-[3px] border-solid border-blue-500 bg-white ">
+          <span className="flex justify-center pt-2 text-[28px] font-bold">{optionNum + 1}</span>
+        </div>
+        <div className="justify-end self-center">
+          <p className="text-start text-[28px] font-[700] capitalize text-white">{title}</p>
+        </div>
+      </li>
+    </Link>
   );
 };
 

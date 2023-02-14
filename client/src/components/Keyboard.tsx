@@ -9,7 +9,7 @@ const NumberKeys = () => {
   return (
     <>
       {numPad.map((key, i) => (
-        <button type="button" className={`${btnStyles} keyboardBtn w-[100px]`} key={`${key}-${i}`}>
+        <button type="button" className={`${btnStyles} keyboardBtn w-[100px] text-xl font-extrabold`} key={`${key}-${i}`}>
           {key}
         </button>
       ))}
@@ -22,7 +22,7 @@ const SideKeys = () => {
   return (
     <>
       {sidePad.map((key, i) => (
-        <button type="button" className={`${btnStyles} w-[200px]`} key={`${key}-${i}`}>
+        <button type="button" className={`${btnStyles} w-[200px] text-xl font-extrabold`} key={`${key}-${i}`}>
           <span>
             {key} <span>{i === 0 ? "X" : i === 1 ? "<" : i === 2 ? "" : "0"}</span>
           </span>

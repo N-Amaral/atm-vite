@@ -1,8 +1,8 @@
-import { OnScreenKeyboard, formsNumber } from "../../scripts/inputScripts";
 import React, { useEffect, useState, useContext } from "react";
 import OperationLayout from "../../components/OperationLayout";
 import { CreditCards } from "../../helpers/defaultCards";
 import { OperationContext } from "../../context/OperationContext";
+
 import Layout from "../layout";
 
 type Props = {};
@@ -32,9 +32,19 @@ function CardList() {
 }
 
 function LoginContent({}: Props) {
+  // @ts-ignore
+  const { dispatch } = useContext(OperationContext);
+
+  useEffect(() => {
+    dispatch({
+      type: "OPERATION_CHANGE",
+      operation: "login",
+    });
+  }, []);
+
   return (
     <>
-      <OperationLayout hOne="Login" hThree={["NIB", "PIN"]} formTypes={["upper", "lower"]} formNumber={[21, 4]} />
+      <OperationLayout hOne="Login" hThree={["NIB", "PIN"]} formTypes={["basic", "basic"]} formNumber={[21, 4]} />
       {/* cardlist */}
       <div className="">
         <ul className="m-2 grid grid-cols-1	gap-y-4 gap-x-1">
@@ -46,27 +56,6 @@ function LoginContent({}: Props) {
 }
 
 function Login({}: Props) {
-  const [inputValue, setInputValue] = useState([]);
-  const [formValue, setFormValue] = useState({});
-
-  // initialize formValue based on number of inputs on page
-  useEffect(() => {
-    formsNumber(formValue, setFormValue);
-  }, []);
-
-  // register input on click
-  useEffect(() => {
-    function handleOnScreenInput(event: any) {
-      OnScreenKeyboard(event, inputValue, setInputValue);
-    }
-
-    const keyboard = document.querySelectorAll(".keyboardBtn");
-    keyboard.forEach((key) => key.addEventListener("click", handleOnScreenInput));
-
-    return () => {
-      keyboard.forEach((key) => key.removeEventListener("click", handleOnScreenInput));
-    };
-  }, [inputValue]);
   return (
     <>
       <Layout children={<LoginContent />} />
