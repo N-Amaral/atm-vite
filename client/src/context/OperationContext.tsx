@@ -7,7 +7,7 @@ type Props = {
 export const OperationContext = React.createContext<{ operation: string; dispatch: Function } | null>(null);
 
 export const OperationContextProvider = ({ children }: Props) => {
-  const INITIAL_STATE = { operation: "home" };
+  const INITIAL_STATE = { operation: null };
 
   const operationReducer = (state: any, action: any) => {
     switch (action.type) {

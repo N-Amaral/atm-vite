@@ -3,11 +3,19 @@ import OperationLayout from "../../components/OperationLayout";
 import Layout from "../layout";
 import { OperationContext } from "../../context/OperationContext";
 import { useContext, useEffect, useState } from "react";
+import MenuOptions from "../../components/MenuOptions";
+import { operationList } from "../../helpers/operationList";
 
 type Props = {};
 
 const DepositsContent = (props: Props) => {
   return <OperationLayout hOne="depositos" hThree={["Conta a depositar", "Montante a Depositar"]} formTypes={["basic", "deposit"]} formNumber={[21, 5]} />;
+};
+
+const DepositMenu = (props: Props) => {
+  const titles: string[] = operationList.PT.depositos;
+
+  return <MenuOptions opTitles={titles} opValues={undefined} />;
 };
 
 function Deposits({}: Props) {
@@ -20,7 +28,7 @@ function Deposits({}: Props) {
       operation: "deposits",
     });
   }, []);
-  return <Layout children={<DepositsContent />} />;
+  return <Layout children={<DepositMenu />} />;
 }
 
 export default Deposits;

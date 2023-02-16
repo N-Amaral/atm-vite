@@ -8,11 +8,12 @@ import Deposits from "./scenes/deposits";
 import Withdrawls from "./scenes/withdrawls";
 import Checkings from "./scenes/check";
 import { BrowserRouter, Routes, Route, Navigate, redirect } from "react-router-dom";
-import { OperationContextProvider } from "./context/OperationContext";
+import { OperationContextProvider, OperationContext } from "./context/OperationContext";
+
 function App() {
   return (
-    <OperationContextProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <OperationContextProvider>
         <Routes>
           <Route path="/">
             <Route index element={<Home />} />
@@ -25,8 +26,8 @@ function App() {
           <Route path="depositos" element={<Deposits />} />
           <Route path="levantamentos" element={<Withdrawls />} />
         </Routes>
-      </BrowserRouter>
-    </OperationContextProvider>
+      </OperationContextProvider>
+    </BrowserRouter>
   );
 }
 
