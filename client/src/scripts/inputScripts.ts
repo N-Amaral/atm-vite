@@ -1,6 +1,5 @@
-export function OnScreenKeyboard(event: any, state: Array<string[]>, setInputValue: Function) {
+export function OnScreenKeyboard(event: any, state: {}, setInputValue: Function) {
   const keyValue: string = event.target.innerText;
-  setInputValue((prev: Array<string[]>) => [...prev, [keyValue]]);
   setValueOnForm(keyValue, state, setInputValue);
 }
 
@@ -22,7 +21,12 @@ export function formsNumber(formState: object, setFormState: Function) {
   setFormState((prev: object) => Object.assign(prev, result));
 }
 
-function checkFormStatus(form: Element[]) {}
+function checkFormStatus(state: {}) {
+  const entries = Object.entries(state);
+  for (const [key, value] of Object.entries(entries)) {
+    console.log(`${key}: ${value}`);
+  }
+}
 
 function setValueOnForm(value: string, formstate: object, setFormState: Function) {
   const form = document.querySelectorAll(".inputForm");

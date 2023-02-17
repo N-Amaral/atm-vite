@@ -2,8 +2,8 @@ import React, { useEffect, useState, useContext } from "react";
 import OperationLayout from "../../components/OperationLayout";
 import { CreditCards } from "../../helpers/defaultCards";
 import { OperationContext } from "../../context/OperationContext";
-
 import Layout from "../layout";
+import { formsNumber, OnScreenKeyboard } from "../../scripts/inputScripts";
 
 type Props = {};
 
@@ -32,16 +32,6 @@ function CardList() {
 }
 
 function LoginContent({}: Props) {
-  // @ts-ignore
-  const { dispatch } = useContext(OperationContext);
-
-  useEffect(() => {
-    dispatch({
-      type: "OPERATION_CHANGE",
-      operation: "login",
-    });
-  }, []);
-
   return (
     <>
       <OperationLayout hOne="Login" hThree={["NIB", "PIN"]} formTypes={["basic", "basic"]} formNumber={[21, 4]} />
@@ -56,6 +46,31 @@ function LoginContent({}: Props) {
 }
 
 function Login({}: Props) {
+  // @ts-ignore
+  const { dispatch } = useContext(OperationContext);
+  const [inputs, setInputs] = useState({});
+
+  useEffect(() => {
+    formsNumber(inputs, setInputs);
+    dispatch({
+      type: "OPERATION_CHANGE",
+      operation: "login",
+    });
+  }, []);
+
+  useEffect(() => {
+    const keyboard = document.querySelectorAll(".keyboardBtn");
+
+    function handleClick(e: any) {
+      OnScreenKeyboard(e, inputs, setInputs);
+    }
+
+    keyboard.forEach((key) => key.addEventListener("click", handleClick));
+    return () => {
+      keyboard.forEach((key) => key.removeEventListener("click", handleClick));
+    };
+  });
+
   return (
     <>
       <Layout children={<LoginContent />} />
