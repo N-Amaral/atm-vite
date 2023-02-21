@@ -7,7 +7,8 @@ import Payments from "./scenes/payments";
 import Deposits from "./scenes/deposits";
 import Withdrawls from "./scenes/withdrawls";
 import Checkings from "./scenes/check";
-import { BrowserRouter, Routes, Route, Navigate, redirect } from "react-router-dom";
+import OperationForm from "./components/OperationForm";
+import { BrowserRouter, Routes, Route, Navigate, redirect, useLoaderData } from "react-router-dom";
 import { OperationContextProvider, OperationContext } from "./context/OperationContext";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="pagamentos" element={<Payments />} />
           <Route path="depositos" element={<Deposits />} />
           <Route path="levantamentos" element={<Withdrawls />} />
+          <Route path="/operation/:operation" element={<OperationForm />} />
         </Routes>
       </OperationContextProvider>
     </BrowserRouter>

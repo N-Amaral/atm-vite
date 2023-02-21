@@ -8,10 +8,6 @@ import { operationList } from "../../helpers/operationList";
 
 type Props = {};
 
-const DepositsContent = (props: Props) => {
-  return <OperationLayout hOne="depositos" hThree={["Conta a depositar", "Montante a Depositar"]} formTypes={["basic", "deposit"]} formNumber={[21, 5]} />;
-};
-
 const DepositMenu = (props: Props) => {
   const titles: string[] = operationList.PT.depositos;
 

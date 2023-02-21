@@ -1,15 +1,10 @@
 import React, { useEffect, useContext } from "react";
 import { OperationContext } from "../../context/OperationContext";
-import OperationLayout from "../../components/OperationLayout";
 import Layout from "../layout";
 import MenuOptions from "../../components/MenuOptions";
 import { operationList } from "../../helpers/operationList";
 
 type Props = {};
-
-const WithdrawlsContent = (props: Props) => {
-  return <OperationLayout hOne="levantamentos" hThree={["Montante a Levantar"]} formTypes={["deposit"]} formNumber={[5]} />;
-};
 
 const WithdrawlMenu = (props: Props) => {
   const titles: string[] = operationList.PT.levantamentos.opTitles;

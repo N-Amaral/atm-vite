@@ -34,7 +34,7 @@ const WithdrawlOption = ({ optionNum, title, value }: InnerProps) => {
     );
   } else if (value === "0") {
     content.push(
-      <Link to={`/withdrawlsForm`}>
+      <Link to={`/operation/withdrawl`}>
         <li
           id={title}
           className="flex h-[6rem] w-[35rem] content-center rounded-lg border-[3px] border-gray-300 bg-gray-500 hover:cursor-pointer hover:border-gray-500 hover:bg-gray-600 "
@@ -71,7 +71,7 @@ const WithdrawlOption = ({ optionNum, title, value }: InnerProps) => {
 
 const Option = ({ optionNum, title, value }: InnerProps) => {
   return (
-    <Link to={`/${title}`}>
+    <Link to={title !== "Outras Operações" ? `/${title}` : "/"}>
       <li
         id={title}
         className="flex h-[6rem] w-[35rem] content-center rounded-lg border-[3px] border-gray-300 bg-gray-500 hover:cursor-pointer hover:border-gray-500 hover:bg-gray-600 "

@@ -11,7 +11,7 @@ const PaymentsContent = (props: Props) => {
       hOne="Pagamentos de Serviços"
       hThree={["Entidade", "Referência Bancária", "Montante"]}
       formTypes={["basic", "bankref", "payment"]}
-      formNumber={[4, 9, 7]}
+      formNumber={[5, 9, 7]}
     />
   );
 };
